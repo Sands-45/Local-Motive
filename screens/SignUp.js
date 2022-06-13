@@ -11,7 +11,7 @@ import tw from "twrnc";
 import { Icon } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 
-const SignIn = () => {
+const SignUp = () => {
   const navigate = useNavigation();
   const [loginValues, setValues] = useState({
     email: "",
@@ -22,22 +22,16 @@ const SignIn = () => {
   return (
     <SafeAreaView style={tw`bg-[#E1F1FC] h-full`}>
       <View
-        style={tw`bg-[#E1F1FC] w-full h-full p-4 pt-24 flex flex-col justify-center`}
+        style={tw`bg-[#E1F1FC] w-full h-full p-4 pt-6 flex flex-col justify-center`}
       >
-        <Text style={tw`text-[11] font-bold text-emerald-700  text-center`}>
-          Let&#39;s sign you in.
+        <Image
+          source={require("../assets/images/register.png")}
+          resizeMode="contain"
+          style={tw`h-[200px] w-full`}
+        ></Image>
+        <Text style={tw`mt-6 text-[8] font-bold text-emerald-700  text-center`}>
+          Let&#39;s get you set up.
         </Text>
-        <Text
-          style={tw`mt-4 text-3xl font-medium text-emerald-700  text-center`}
-        >
-          Welcome back.
-        </Text>
-        <Text
-          style={tw`mt-2 text-3xl font-medium text-emerald-700  text-center`}
-        >
-          You&#39;ve been missed!
-        </Text>
-
         {/**Log In Form ========= */}
         <View style={tw`w-full flex flex-col mt-6 p-2`}>
           <TextInput
@@ -68,24 +62,13 @@ const SignIn = () => {
           <View
             style={tw`w-full mt-2 py-2 flex flex-col items-center justify-center`}
           >
-            <Text
-              onPress={() => navigate.navigate("Welcome")}
-              style={tw`text-base font-medium text-emerald-700 text-right w-full`}
-            >
-              Password Recovery ?
-            </Text>
-
-            {/**Sign In ================ */}
             <TouchableOpacity
-              onPress={() => {
-                navigate.navigate("Home");
-              }}
               style={tw`mt-6 flex flex-row items-center justify-center bg-emerald-700 w-full h-12 px-6 py-1 rounded`}
             >
               <Text
                 style={tw`text-emerald-50 font-bold  text-xl text-center tracking-normal`}
               >
-                Sign in
+                Sign up
               </Text>
             </TouchableOpacity>
             {/**Other sign in options Devider ================= */}
@@ -144,12 +127,12 @@ const SignIn = () => {
 
             {/**Register Account ================================ */}
             <Text style={tw`text-base font-medium text-emerald-700 mt-6`}>
-              Don't have an account ?{" "}
+              Have an account already ?{" "}
               <Text
-                onPress={() => navigate.navigate("SignUp")}
+                onPress={() => navigate.navigate("SignIn")}
                 style={tw`text-base font-bold text-emerald-700 `}
               >
-                Register
+                Sign in.
               </Text>
             </Text>
           </View>
@@ -159,4 +142,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

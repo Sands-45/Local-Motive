@@ -3,6 +3,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import Welcome from "./screens/Welcome";
 import SignIn from "./screens/SignIn";
+import SignUp from "./screens/SignUp";
+import Home from "./screens/Home";
 import store from "./redux/slices/Store";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -30,6 +32,16 @@ export default function App() {
               <Stack.Screen
                 name="SignIn"
                 component={SignIn}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="SignUp"
+                component={SignUp}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Home"
+                component={Home}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
